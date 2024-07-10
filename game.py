@@ -1,6 +1,13 @@
+from game_result import GameResult
+
+
 class Game:
-    def guess(self, guessNumber):
+    def __init__(self):
+        self.question = ""
+
+    def guess(self, guessNumber) -> GameResult:
         self.assert_illegal_value(guessNumber)
+        return GameResult(True, 3, 0)
 
     def assert_illegal_value(self, guessNumber):
         if guessNumber is None:

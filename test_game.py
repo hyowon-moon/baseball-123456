@@ -1,6 +1,7 @@
 from unittest import TestCase
 
 from game import Game
+from game_result import GameResult
 
 
 class TestGame(TestCase):
@@ -22,5 +23,12 @@ class TestGame(TestCase):
         self.assert_illegal_argument("12s")
         self.assert_illegal_argument("121")
 
-    def test_game(self):
-        self.assertEqual(1, 1)
+    def test_return_solve_result_if_matched_number(self):
+        self.game.question = "123"
+        result : GameResult = self.game.guess("123")
+
+        self.assertIsNotNone(result)
+        self.assertTrue(result.solved)
+        self.assertEqual(3, result.strikes)
+        self.assertEqual(0, result.balls)
+
