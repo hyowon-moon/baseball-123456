@@ -22,6 +22,5 @@ class TestGame(TestCase):
         self.assert_illegal_argument("12s")
         self.assert_illegal_argument("121")
 
-
     def test_game(self):
         self.assertEqual(1, 1)
